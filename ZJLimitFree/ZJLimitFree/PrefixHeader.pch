@@ -1,0 +1,20 @@
+//
+//  PrefixHeader.pch
+//  ZJLimitFree
+//
+//  Created by 千锋 on 16/6/12.
+//  Copyright (c) 2016年 千锋. All rights reserved.
+//
+
+#ifndef ZJLimitFree_PrefixHeader_pch
+#define ZJLimitFree_PrefixHeader_pch
+
+//在这导入一些常用类的头文件
+#import "UIColor+ZJColor.h"
+
+//使用cocoapods导入的第三方库，在使用时候需要使用<>来导入
+#import <Masonry.h>
+
+#import <MJRefresh.h>
+
+#endif
