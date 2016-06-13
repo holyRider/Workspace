@@ -21,6 +21,15 @@
     // Do any additional setup after loading the view.
 }
 
+-(instancetype)init {
+    if (self = [super init]) {
+        
+        self.requestUrl = kSubjectUrl;
+    }
+    
+    return self;
+}
+
 #pragma mark 创建界面
 - (void)creatUI {
     

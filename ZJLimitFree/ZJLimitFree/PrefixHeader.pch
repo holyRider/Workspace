@@ -13,8 +13,16 @@
 #import "UIColor+ZJColor.h"
 
 //使用cocoapods导入的第三方库，在使用时候需要使用<>来导入
+#import <AFNetworking.h>
+
 #import <Masonry.h>
 
 #import <MJRefresh.h>
+
+#import "Define.h"
+
+#import <YYModel.h>
+
+#import "CategoryModel.h"
 
 #endif

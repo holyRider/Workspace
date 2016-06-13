@@ -9,10 +9,15 @@
 #import "AppListViewController.h"
 #import "SettingsViewController.h"
 #import "CategoryViewController.h"
-@interface AppListViewController () <UISearchBarDelegate>
+#import "AppListModel.h"
+#import "AppListCell.h"
+@interface AppListViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 //表格视图
 @property (nonatomic, strong) UITableView *appTableView;
+
+//数据源数组
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -21,6 +26,64 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self requestDataWithPage:1 search:@"" cateId:@""];
+}
+
+#pragma mark -懒加载
+-(NSMutableArray *)dataArray {
+    if (_dataArray == nil) {
+        _dataArray = [NSMutableArray new];
+    }
+    
+    return _dataArray;
+}
+
+#pragma mark - 数据请求
+- (void)requestDataWithPage:(NSInteger)page search:(NSString *)search cateId:(NSString *)cateId {
+    
+    //请求数据
+    NSDictionary *dict = @{@"page" : [NSNumber numberWithInteger:page], @"number" : @20, @"search" : search};
+    
+    //@"cate_id" : cateId
+    if (self.cateId.length > 0) {
+        dict = @{@"page" : [NSNumber numberWithInteger:page], @"number" : @20, @"search" : search, @"cate_id" : self.cateId};
+    }
+    
+    [self.requestManager GET:self.requestUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"success");
+       // NSLog(@"---%@", responseObject);
+        
+        //获取字典数组
+        NSArray *plistArray = responseObject[@"applications"];
+        
+        //将字典数组转化为模型数组
+        //参数1:模型的类型
+        //参数2:需要转化的数组
+        NSArray *appArray = [NSArray yy_modelArrayWithClass:[AppListModel class] json:plistArray];
+        //NSLog(@"%@", appArray);
+//        for (AppListModel *model in appArray) {
+//            NSLog(@"%@", model);
+//        }
+        
+        if ([self.appTableView.mj_header isRefreshing]) {
+            //删除之前的数据
+            [self.dataArray removeAllObjects];
+        }
+        
+        //将模型放到数据源数组中
+        [self.dataArray addObjectsFromArray:appArray];
+        
+        //停止刷新
+        [self.appTableView.mj_header endRefreshing];
+        [self.appTableView.mj_footer endRefreshing];
+        
+        //刷新界面
+        [self.appTableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"failed:%@", error);
+    }];
+    
 }
 
 #pragma mark - 创建界面
@@ -54,7 +117,30 @@
     
     self.appTableView.tableHeaderView = searchBar;
     
+    //添加刷新控件
     [self addMJRefresh];
+    
+    //设置代理
+    self.appTableView.delegate = self;
+    self.appTableView.dataSource = self;
+    //设置cell的高度
+    self.appTableView.rowHeight = 135;
+    [self.appTableView registerNib:[UINib nibWithNibName:@"AppListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+}
+
+#pragma mark - tableView Datasuorce
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.dataArray.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //去复用池中查看是否可以有复用的cell，如果有直接返回。如果没有就创建一个新的返回
+    AppListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    //更新数据
+    cell.model = self.dataArray[indexPath.row];
+    return cell;
 }
 
 #pragma mark - 添加刷新控件
@@ -62,13 +148,17 @@
     
     //下拉
     self.appTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        //进入刷新状态后会调用
-        [self.appTableView.mj_header endRefreshing];
+        //进入刷新状态后会调用这个block
+        
+        //重新请求数据
+        [self requestDataWithPage:1 search:@"" cateId:@""];
     }];
     
     //上拉
     self.appTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [self.appTableView.mj_footer endRefreshing];
+        
+        NSInteger page = self.dataArray.count / 20 + 1;
+        [self requestDataWithPage:page search:@"" cateId:@""];
     }];
 }
 
@@ -76,8 +166,17 @@
 //点击分类
 - (void)category:(UIButton *)btn {
     
-    //
+    //跳转到分类界面
     CategoryViewController *category = [[CategoryViewController alloc]init];
+    
+    //实现下一级界面block
+    category.sendValue = ^(NSString *cateId){
+        //[self requestDataWithPage:0 search:@"" cateId:cateId];
+        
+        self.cateId = cateId;
+        NSLog(@"+++%@", self.cateId);
+        [self.appTableView.mj_header beginRefreshing];
+    };
     category.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:category animated:YES];
 }

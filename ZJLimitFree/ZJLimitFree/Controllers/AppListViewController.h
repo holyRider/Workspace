@@ -10,4 +10,7 @@
 
 @interface AppListViewController : BasicViewController
 
+//分类对应的id
+@property (nonatomic, copy) NSString *cateId;
+
 @end

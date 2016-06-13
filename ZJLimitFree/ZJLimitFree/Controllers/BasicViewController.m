@@ -23,6 +23,21 @@
     [self creatUI];
 }
 
+#pragma mark - 懒加载
+-(AFHTTPSessionManager *)requestManager {
+    if (_requestManager == nil) {
+        
+        //实例化时是个类方法
+        _requestManager = [AFHTTPSessionManager manager];
+        //设置JSON数据序列化，将JSON数据转换为字典或数组
+        _requestManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        //在序列器中追加一个类型，text/html这个类型是不支持的
+        _requestManager.responseSerializer.acceptableContentTypes = [_requestManager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    }
+    
+    return _requestManager;
+}
+
 #pragma mark - 创建界面
 - (void)creatUI {
     

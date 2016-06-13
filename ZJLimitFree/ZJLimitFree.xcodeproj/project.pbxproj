@@ -187,6 +187,11 @@
 		BC469DDB1D0D3C2C00BBF5F4 /* UIColor+ZJColor.m in Sources */ = {isa = PBXBuildFile; fileRef = BC469DDA1D0D3C2C00BBF5F4 /* UIColor+ZJColor.m */; };
 		BC469DE31D0D531400BBF5F4 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC469DE21D0D531400BBF5F4 /* CategoryViewController.m */; };
 		BC469DE61D0D534300BBF5F4 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BC469DE51D0D534300BBF5F4 /* SettingsViewController.m */; };
+		BC50CA381D0E515600735AC4 /* AppListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50CA371D0E515600735AC4 /* AppListModel.m */; };
+		BC50CA3C1D0E58CF00735AC4 /* AppListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50CA3A1D0E58CF00735AC4 /* AppListCell.m */; };
+		BC50CA3D1D0E58CF00735AC4 /* AppListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50CA3B1D0E58CF00735AC4 /* AppListCell.xib */; };
+		BC50CA401D0E864600735AC4 /* ZJStartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50CA3F1D0E864600735AC4 /* ZJStartView.m */; };
+		BC50CA431D0EA08B00735AC4 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50CA421D0EA08B00735AC4 /* CategoryModel.m */; };
 		EA4078F8E390D6BC0F9A6FED /* libPods-ZJLimitFree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FB51AAECA14CA6223E3300 /* libPods-ZJLimitFree.a */; };
 /* End PBXBuildFile section */
 
@@ -404,6 +409,16 @@
 		BC469DE21D0D531400BBF5F4 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryViewController.m; path = Controllers/CategoryViewController.m; sourceTree = "<group>"; };
 		BC469DE41D0D534300BBF5F4 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = Controllers/SettingsViewController.h; sourceTree = "<group>"; };
 		BC469DE51D0D534300BBF5F4 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = Controllers/SettingsViewController.m; sourceTree = "<group>"; };
+		BC50CA341D0E41B400735AC4 /* Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
+		BC50CA361D0E515600735AC4 /* AppListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppListModel.h; sourceTree = "<group>"; };
+		BC50CA371D0E515600735AC4 /* AppListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppListModel.m; sourceTree = "<group>"; };
+		BC50CA391D0E58CF00735AC4 /* AppListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppListCell.h; path = Views/AppListCell.h; sourceTree = "<group>"; };
+		BC50CA3A1D0E58CF00735AC4 /* AppListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppListCell.m; path = Views/AppListCell.m; sourceTree = "<group>"; };
+		BC50CA3B1D0E58CF00735AC4 /* AppListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AppListCell.xib; path = Views/AppListCell.xib; sourceTree = "<group>"; };
+		BC50CA3E1D0E864600735AC4 /* ZJStartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZJStartView.h; path = Views/ZJStartView.h; sourceTree = "<group>"; };
+		BC50CA3F1D0E864600735AC4 /* ZJStartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZJStartView.m; path = Views/ZJStartView.m; sourceTree = "<group>"; };
+		BC50CA411D0EA08B00735AC4 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryModel.h; path = Models/CategoryModel.h; sourceTree = "<group>"; };
+		BC50CA421D0EA08B00735AC4 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryModel.m; path = Models/CategoryModel.m; sourceTree = "<group>"; };
 		C09C54CCD9C25A832DBA8219 /* Pods-ZJLimitFree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJLimitFree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJLimitFree/Pods-ZJLimitFree.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -784,6 +799,11 @@
 		BC469DA31D0D042500BBF5F4 /* Views-视图 */ = {
 			isa = PBXGroup;
 			children = (
+				BC50CA391D0E58CF00735AC4 /* AppListCell.h */,
+				BC50CA3A1D0E58CF00735AC4 /* AppListCell.m */,
+				BC50CA3B1D0E58CF00735AC4 /* AppListCell.xib */,
+				BC50CA3E1D0E864600735AC4 /* ZJStartView.h */,
+				BC50CA3F1D0E864600735AC4 /* ZJStartView.m */,
 			);
 			name = "Views-视图";
 			sourceTree = "<group>";
@@ -791,6 +811,10 @@
 		BC469DA41D0D042B00BBF5F4 /* Models-模型 */ = {
 			isa = PBXGroup;
 			children = (
+				BC50CA361D0E515600735AC4 /* AppListModel.h */,
+				BC50CA371D0E515600735AC4 /* AppListModel.m */,
+				BC50CA411D0EA08B00735AC4 /* CategoryModel.h */,
+				BC50CA421D0EA08B00735AC4 /* CategoryModel.m */,
 			);
 			name = "Models-模型";
 			sourceTree = "<group>";
@@ -876,6 +900,7 @@
 				BC469DD91D0D3C2C00BBF5F4 /* UIColor+ZJColor.h */,
 				BC469DDA1D0D3C2C00BBF5F4 /* UIColor+ZJColor.m */,
 				BC469DDC1D0D3F3100BBF5F4 /* PrefixHeader.pch */,
+				BC50CA341D0E41B400735AC4 /* Define.h */,
 			);
 			name = "common-公共";
 			sourceTree = "<group>";
@@ -1029,6 +1054,7 @@
 				BC469D221D0CF92300BBF5F4 /* buttonbar_action.png in Resources */,
 				BC469DD41D0D09DF00BBF5F4 /* Controllers.plist in Resources */,
 				BC469D711D0CF92300BBF5F4 /* tabbar_reduceprice@2x.png in Resources */,
+				BC50CA3D1D0E58CF00735AC4 /* AppListCell.xib in Resources */,
 				BC469D3A1D0CF92300BBF5F4 /* category_Photography.jpg in Resources */,
 				BC469D4C1D0CF92300BBF5F4 /* cate_list_bg2@2x.png in Resources */,
 				BC469D5F1D0CF92300BBF5F4 /* tabbar_account@2x.png in Resources */,
@@ -1215,14 +1241,18 @@
 				BC469DC31D0D07D500BBF5F4 /* CustomTabBarController.m in Sources */,
 				BC469C341D0CF63600BBF5F4 /* ViewController.m in Sources */,
 				BC469DE31D0D531400BBF5F4 /* CategoryViewController.m in Sources */,
+				BC50CA431D0EA08B00735AC4 /* CategoryModel.m in Sources */,
 				BC469DAE1D0D056B00BBF5F4 /* BasicViewController.m in Sources */,
 				BC469C311D0CF63600BBF5F4 /* AppDelegate.m in Sources */,
+				BC50CA3C1D0E58CF00735AC4 /* AppListCell.m in Sources */,
+				BC50CA381D0E515600735AC4 /* AppListModel.m in Sources */,
 				BC469DCC1D0D088300BBF5F4 /* SubjectViewController.m in Sources */,
 				BC469C2E1D0CF63600BBF5F4 /* main.m in Sources */,
 				BC469DB11D0D064400BBF5F4 /* AppListViewController.m in Sources */,
 				BC469DD21D0D08A100BBF5F4 /* LimitViewController.m in Sources */,
 				BC469DD71D0D10EE00BBF5F4 /* CustomNavigationController.m in Sources */,
 				BC469DE61D0D534300BBF5F4 /* SettingsViewController.m in Sources */,
+				BC50CA401D0E864600735AC4 /* ZJStartView.m in Sources */,
 				BC469DC61D0D086A00BBF5F4 /* FreeViewController.m in Sources */,
 				BC469DDB1D0D3C2C00BBF5F4 /* UIColor+ZJColor.m in Sources */,
 			);
