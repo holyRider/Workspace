@@ -38,6 +38,14 @@
     
     //将字体文件添加到plist中，可以通过下面的代码找到字体名字(添加前后打印)
    // NSLog(@"%@", [UIFont familyNames]);
+    
+//    NSArray *fontFamilies = [UIFont familyNames];
+//    for (int i = 0; i < [fontFamilies count]; i++)
+//    {
+//        NSString *fontFamily = [fontFamilies objectAtIndex:i];
+//        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
+//        NSLog (@"%@: %@", fontFamily, fontNames);
+//    }
 }
 
 //给子控件的属性赋值

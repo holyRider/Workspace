@@ -192,6 +192,12 @@
 		BC50CA3D1D0E58CF00735AC4 /* AppListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC50CA3B1D0E58CF00735AC4 /* AppListCell.xib */; };
 		BC50CA401D0E864600735AC4 /* ZJStartView.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50CA3F1D0E864600735AC4 /* ZJStartView.m */; };
 		BC50CA431D0EA08B00735AC4 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BC50CA421D0EA08B00735AC4 /* CategoryModel.m */; };
+		BCB9D54D1D0F930B006F91C4 /* SubjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB9D54C1D0F930B006F91C4 /* SubjectModel.m */; };
+		BCB9D5511D0F9A34006F91C4 /* SubjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB9D54F1D0F9A34006F91C4 /* SubjectCell.m */; };
+		BCB9D5521D0F9A34006F91C4 /* SubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCB9D5501D0F9A34006F91C4 /* SubjectCell.xib */; };
+		BCB9D55D1D0FC025006F91C4 /* SubjectAppView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCB9D55C1D0FC025006F91C4 /* SubjectAppView.m */; };
+		BCD8B4D71D0FEC28001D4B3D /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCD8B4D61D0FEC28001D4B3D /* SearchViewController.m */; };
+		BCD8B4D91D0FFA9D001D4B3D /* setting.plist in Resources */ = {isa = PBXBuildFile; fileRef = BCD8B4D81D0FFA9D001D4B3D /* setting.plist */; };
 		EA4078F8E390D6BC0F9A6FED /* libPods-ZJLimitFree.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61FB51AAECA14CA6223E3300 /* libPods-ZJLimitFree.a */; };
 /* End PBXBuildFile section */
 
@@ -419,6 +425,16 @@
 		BC50CA3F1D0E864600735AC4 /* ZJStartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZJStartView.m; path = Views/ZJStartView.m; sourceTree = "<group>"; };
 		BC50CA411D0EA08B00735AC4 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CategoryModel.h; path = Models/CategoryModel.h; sourceTree = "<group>"; };
 		BC50CA421D0EA08B00735AC4 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CategoryModel.m; path = Models/CategoryModel.m; sourceTree = "<group>"; };
+		BCB9D54B1D0F930B006F91C4 /* SubjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectModel.h; path = Models/SubjectModel.h; sourceTree = "<group>"; };
+		BCB9D54C1D0F930B006F91C4 /* SubjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectModel.m; path = Models/SubjectModel.m; sourceTree = "<group>"; };
+		BCB9D54E1D0F9A34006F91C4 /* SubjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectCell.h; path = Views/SubjectCell.h; sourceTree = "<group>"; };
+		BCB9D54F1D0F9A34006F91C4 /* SubjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectCell.m; path = Views/SubjectCell.m; sourceTree = "<group>"; };
+		BCB9D5501D0F9A34006F91C4 /* SubjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SubjectCell.xib; path = Views/SubjectCell.xib; sourceTree = "<group>"; };
+		BCB9D55B1D0FC025006F91C4 /* SubjectAppView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SubjectAppView.h; path = Views/SubjectAppView.h; sourceTree = "<group>"; };
+		BCB9D55C1D0FC025006F91C4 /* SubjectAppView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SubjectAppView.m; path = Views/SubjectAppView.m; sourceTree = "<group>"; };
+		BCD8B4D51D0FEC28001D4B3D /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchViewController.h; path = Controllers/SearchViewController.h; sourceTree = "<group>"; };
+		BCD8B4D61D0FEC28001D4B3D /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchViewController.m; path = Controllers/SearchViewController.m; sourceTree = "<group>"; };
+		BCD8B4D81D0FFA9D001D4B3D /* setting.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = setting.plist; sourceTree = "<group>"; };
 		C09C54CCD9C25A832DBA8219 /* Pods-ZJLimitFree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZJLimitFree.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZJLimitFree/Pods-ZJLimitFree.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -524,6 +540,7 @@
 				BC469C561D0CF92200BBF5F4 /* FreeImage */,
 				BC469CF91D0CF92300BBF5F4 /* picture */,
 				BC469DD31D0D09DF00BBF5F4 /* Controllers.plist */,
+				BCD8B4D81D0FFA9D001D4B3D /* setting.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -799,11 +816,8 @@
 		BC469DA31D0D042500BBF5F4 /* Views-视图 */ = {
 			isa = PBXGroup;
 			children = (
-				BC50CA391D0E58CF00735AC4 /* AppListCell.h */,
-				BC50CA3A1D0E58CF00735AC4 /* AppListCell.m */,
-				BC50CA3B1D0E58CF00735AC4 /* AppListCell.xib */,
-				BC50CA3E1D0E864600735AC4 /* ZJStartView.h */,
-				BC50CA3F1D0E864600735AC4 /* ZJStartView.m */,
+				BCD8B4D11D0FEAD7001D4B3D /* 专题 */,
+				BCD8B4D01D0FEAA3001D4B3D /* 限免免费等 */,
 			);
 			name = "Views-视图";
 			sourceTree = "<group>";
@@ -811,10 +825,8 @@
 		BC469DA41D0D042B00BBF5F4 /* Models-模型 */ = {
 			isa = PBXGroup;
 			children = (
-				BC50CA361D0E515600735AC4 /* AppListModel.h */,
-				BC50CA371D0E515600735AC4 /* AppListModel.m */,
-				BC50CA411D0EA08B00735AC4 /* CategoryModel.h */,
-				BC50CA421D0EA08B00735AC4 /* CategoryModel.m */,
+				BCD8B4D31D0FEB50001D4B3D /* 专题 */,
+				BCD8B4D21D0FEAF9001D4B3D /* 限免免费等 */,
 			);
 			name = "Models-模型";
 			sourceTree = "<group>";
@@ -822,6 +834,7 @@
 		BC469DA51D0D043400BBF5F4 /* Controllers-控制器 */ = {
 			isa = PBXGroup;
 			children = (
+				BCD8B4D41D0FEBEA001D4B3D /* 搜索 */,
 				BC469DE01D0D52B400BBF5F4 /* 分类 */,
 				BC469DDF1D0D529D00BBF5F4 /* 设置 */,
 				BC469DAB1D0D04C500BBF5F4 /* 公共视图控制器 */,
@@ -921,6 +934,59 @@
 				BC469DE21D0D531400BBF5F4 /* CategoryViewController.m */,
 			);
 			name = "分类";
+			sourceTree = "<group>";
+		};
+		BCD8B4D01D0FEAA3001D4B3D /* 限免免费等 */ = {
+			isa = PBXGroup;
+			children = (
+				BC50CA391D0E58CF00735AC4 /* AppListCell.h */,
+				BC50CA3A1D0E58CF00735AC4 /* AppListCell.m */,
+				BC50CA3B1D0E58CF00735AC4 /* AppListCell.xib */,
+				BC50CA3E1D0E864600735AC4 /* ZJStartView.h */,
+				BC50CA3F1D0E864600735AC4 /* ZJStartView.m */,
+			);
+			name = "\U0010限免免费等";
+			sourceTree = "<group>";
+		};
+		BCD8B4D11D0FEAD7001D4B3D /* 专题 */ = {
+			isa = PBXGroup;
+			children = (
+				BCB9D54E1D0F9A34006F91C4 /* SubjectCell.h */,
+				BCB9D54F1D0F9A34006F91C4 /* SubjectCell.m */,
+				BCB9D5501D0F9A34006F91C4 /* SubjectCell.xib */,
+				BCB9D55B1D0FC025006F91C4 /* SubjectAppView.h */,
+				BCB9D55C1D0FC025006F91C4 /* SubjectAppView.m */,
+			);
+			name = "专题";
+			sourceTree = "<group>";
+		};
+		BCD8B4D21D0FEAF9001D4B3D /* 限免免费等 */ = {
+			isa = PBXGroup;
+			children = (
+				BC50CA361D0E515600735AC4 /* AppListModel.h */,
+				BC50CA371D0E515600735AC4 /* AppListModel.m */,
+				BC50CA411D0EA08B00735AC4 /* CategoryModel.h */,
+				BC50CA421D0EA08B00735AC4 /* CategoryModel.m */,
+			);
+			name = "限免免费等";
+			sourceTree = "<group>";
+		};
+		BCD8B4D31D0FEB50001D4B3D /* 专题 */ = {
+			isa = PBXGroup;
+			children = (
+				BCB9D54B1D0F930B006F91C4 /* SubjectModel.h */,
+				BCB9D54C1D0F930B006F91C4 /* SubjectModel.m */,
+			);
+			name = "专题";
+			sourceTree = "<group>";
+		};
+		BCD8B4D41D0FEBEA001D4B3D /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				BCD8B4D51D0FEC28001D4B3D /* SearchViewController.h */,
+				BCD8B4D61D0FEC28001D4B3D /* SearchViewController.m */,
+			);
+			name = "搜索";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1107,6 +1173,7 @@
 				BC469D8A1D0CF92300BBF5F4 /* finish.png in Resources */,
 				BC469D261D0CF92300BBF5F4 /* buttonbar_edit.png in Resources */,
 				BC469C371D0CF63600BBF5F4 /* Main.storyboard in Resources */,
+				BCD8B4D91D0FFA9D001D4B3D /* setting.plist in Resources */,
 				BC469D561D0CF92300BBF5F4 /* StarsForeground.png in Resources */,
 				BC469D0F1D0CF92300BBF5F4 /* account_setting@2x.png in Resources */,
 				BC469D4E1D0CF92300BBF5F4 /* Detail_btn_left@2x.png in Resources */,
@@ -1148,6 +1215,7 @@
 				BC469D571D0CF92300BBF5F4 /* composedingwei.png in Resources */,
 				BC469D1D1D0CF92300BBF5F4 /* Defaultretein3@2x.png in Resources */,
 				BC469D621D0CF92300BBF5F4 /* tabbar_appfree.png in Resources */,
+				BCB9D5521D0F9A34006F91C4 /* SubjectCell.xib in Resources */,
 				BC469D291D0CF92300BBF5F4 /* cate_list_bg@2x.png in Resources */,
 				BC469D8E1D0CF92300BBF5F4 /* helpphoto_one.png in Resources */,
 				BC469D781D0CF92300BBF5F4 /* tabbar_subject_press.png in Resources */,
@@ -1237,6 +1305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC469DCF1D0D088E00BBF5F4 /* ReductionViewController.m in Sources */,
+				BCB9D5511D0F9A34006F91C4 /* SubjectCell.m in Sources */,
 				BC469DC91D0D087700BBF5F4 /* HotViewController.m in Sources */,
 				BC469DC31D0D07D500BBF5F4 /* CustomTabBarController.m in Sources */,
 				BC469C341D0CF63600BBF5F4 /* ViewController.m in Sources */,
@@ -1250,11 +1319,14 @@
 				BC469C2E1D0CF63600BBF5F4 /* main.m in Sources */,
 				BC469DB11D0D064400BBF5F4 /* AppListViewController.m in Sources */,
 				BC469DD21D0D08A100BBF5F4 /* LimitViewController.m in Sources */,
+				BCB9D54D1D0F930B006F91C4 /* SubjectModel.m in Sources */,
 				BC469DD71D0D10EE00BBF5F4 /* CustomNavigationController.m in Sources */,
 				BC469DE61D0D534300BBF5F4 /* SettingsViewController.m in Sources */,
 				BC50CA401D0E864600735AC4 /* ZJStartView.m in Sources */,
 				BC469DC61D0D086A00BBF5F4 /* FreeViewController.m in Sources */,
 				BC469DDB1D0D3C2C00BBF5F4 /* UIColor+ZJColor.m in Sources */,
+				BCB9D55D1D0FC025006F91C4 /* SubjectAppView.m in Sources */,
+				BCD8B4D71D0FEC28001D4B3D /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

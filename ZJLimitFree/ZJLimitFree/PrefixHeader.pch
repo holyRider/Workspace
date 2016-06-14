@@ -25,4 +25,6 @@
 
 #import "CategoryModel.h"
 
+#include <UIImageView+AFNetworking.h>
+
 #endif

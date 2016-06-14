@@ -18,26 +18,43 @@
 
 @implementation ZJStartView
 
+-(instancetype)init {
+    if (self = [super init]) {
+        
+        [self creatSubView];
+        
+    }
+    
+    return self;
+}
+
 #pragma mark - 初始化
 //通过storyBoard或者xib去创建视图的时候，会调用这个方法
 //在这个方法中可以拿到当前视图的frame
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if (self = [super initWithCoder:aDecoder]) {
         
-        //NSLog(@"%@", NSStringFromCGRect(self.frame));
-        //实例化子视图
-        self.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"StarsBackground"]];
-        
-        [self addSubview:self.backgroundView];
-        
-        self.foregroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"StarsForeground"]];
-        
-        [self addSubview:self.foregroundView];
+        [self creatSubView];
         
     }
     
     return self;
 }
+
+#pragma mark - 创建子视图
+- (void)creatSubView {
+    
+    //NSLog(@"%@", NSStringFromCGRect(self.frame));
+    //实例化子视图
+    self.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"StarsBackground"]];
+    
+    [self addSubview:self.backgroundView];
+    
+    self.foregroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"StarsForeground"]];
+    
+    [self addSubview:self.foregroundView];
+}
+
 
 //从外部给starValue赋值，然后根据starValue的值设置foregroundView的宽度
 - (void)setStarValue:(NSString *)starValue {

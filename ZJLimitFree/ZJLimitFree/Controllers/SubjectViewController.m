@@ -7,10 +7,14 @@
 //
 
 #import "SubjectViewController.h"
-
-@interface SubjectViewController ()
+#import "SubjectModel.h"
+#import "SubjectCell.h"
+@interface SubjectViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UITableView *subjectTableView;
+
+//数据源数组
+@property (nonatomic, strong) NSMutableArray *dataArray;
 
 @end
 
@@ -19,8 +23,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self requestDataWithPage:1];
 }
 
+#pragma mark - 懒加载
+-(NSMutableArray *)dataArray {
+    if (_dataArray == nil) {
+        
+        _dataArray = [NSMutableArray new];
+    }
+    
+    return _dataArray;
+}
+
+#pragma mark - 初始化
 -(instancetype)init {
     if (self = [super init]) {
         
@@ -28,6 +45,37 @@
     }
     
     return self;
+}
+
+#pragma mark - 获取数据
+//page 分页
+//number 数量
+- (void)requestDataWithPage:(NSInteger)page {
+    [self.requestManager GET:self.requestUrl parameters:@{@"page" : [NSNumber numberWithInteger:page], @"number" : @5} success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSLog(@"Subject_success:%@",responseObject);
+        
+        //将数组转化为模型数组
+        NSArray *modelArray = [NSArray yy_modelArrayWithClass:[SubjectModel class] json:responseObject];
+        
+        //判断是否是刷新状态
+        if ([self.subjectTableView.mj_header isRefreshing]) {
+            [self.dataArray removeAllObjects];
+        }
+        
+        
+        //将数据存放到数据源数组中
+        [self.dataArray addObjectsFromArray:modelArray];
+        
+        [self.subjectTableView.mj_header endRefreshing];
+        [self.subjectTableView.mj_footer endRefreshing];
+        
+        //刷新数据
+        [self.subjectTableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"Subject_failed:%@", error);
+    }];
 }
 
 #pragma mark 创建界面
@@ -45,6 +93,38 @@
     }];
     
     [self addMJRefresh];
+    
+    //设置代理
+    self.subjectTableView.delegate = self;
+    self.subjectTableView.dataSource = self;
+    
+    //设置行高
+    [self.subjectTableView setRowHeight:324];
+    
+    //注册cell
+    [self.subjectTableView registerNib:[UINib nibWithNibName:@"SubjectCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+}
+
+#pragma mark - TableView Datasource
+//设置行数
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    //设置行数
+    return  self.dataArray.count;
+}
+
+//创建cell
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //创建cell
+    SubjectCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    //刷新数据
+    cell.model = self.dataArray[indexPath.row];
+    
+    //返回cell
+    return cell;
     
 }
 
@@ -87,13 +167,18 @@
 #pragma mark - 下拉刷新
 //下拉刷新
 - (void)refresh:(MJRefreshGifHeader *)refresh {
-    [self.subjectTableView.mj_header endRefreshing];
+    //[self.subjectTableView.mj_header endRefreshing];
+    
+    [self requestDataWithPage:1];
+    
 }
 
 #pragma mark - 上拉加载更多
 //上拉加载
 - (void)addMore:(MJRefreshBackGifFooter *)addMore {
-   [self.subjectTableView.mj_footer endRefreshing];
+   //[self.subjectTableView.mj_footer endRefreshing];
+    
+    [self requestDataWithPage:self.dataArray.count / 5 + 1];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

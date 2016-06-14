@@ -9,8 +9,10 @@
 #import "AppListViewController.h"
 #import "SettingsViewController.h"
 #import "CategoryViewController.h"
+#import "SearchViewController.h"
 #import "AppListModel.h"
 #import "AppListCell.h"
+
 @interface AppListViewController () <UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 //表格视图
@@ -50,7 +52,7 @@
     }
     
     [self.requestManager GET:self.requestUrl parameters:dict success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"success");
+        NSLog(@"AppList_success");
        // NSLog(@"---%@", responseObject);
         
         //获取字典数组
@@ -81,7 +83,7 @@
         [self.appTableView reloadData];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        NSLog(@"failed:%@", error);
+        NSLog(@"APPList_failed:%@", error);
     }];
     
 }
@@ -193,6 +195,20 @@
 #pragma mark - SearchBar Delegate
 //点击搜索按钮会调用的方法
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    //收起键盘
+    [searchBar resignFirstResponder];
+    
+    //进入搜索页
+    SearchViewController *search = [[SearchViewController alloc]init];
+    
+    //传值
+    search.requestUrl = self.requestUrl;
+    search.searchText = searchBar.text;
+    search.hidesBottomBarWhenPushed = YES;
+    
+    //跳转
+    [self.navigationController pushViewController:search animated:YES];
     
    
 }
